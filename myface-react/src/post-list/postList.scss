@@ -1,0 +1,20 @@
+#postsListContainer {
+    display : flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    border: 10px black;
+    border-radius: 2px;
+}
+
+.posts {
+    display: block;
+    width: 30%;
+    height: auto;
+}
+
+.post_image {
+    height: auto;
+    width: 30%;
+}

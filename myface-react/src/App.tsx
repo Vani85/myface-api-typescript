@@ -1,8 +1,10 @@
 import {BrowserRouter as Router, Routes, Route, Link} from 'react-router-dom';
 
-import './App.css'
+import './App.scss'
+import './post-list/postList.scss';
 import { PostList } from './post-list/postList' 
 import { UserDetails } from './userDetails/userDetails'
+import { UserLists } from './users-list/usersList';
 
 function App() {
 
@@ -16,7 +18,8 @@ function App() {
               </nav>
               
           <Routes>
-            <Route path="/posts" element={<PostList />}/>            
+            <Route path="/posts" element={<PostList />}/>     
+            <Route path="/users" element={<UserLists />}/>         
             <Route path="/users/:userId" element={<UserDetails />}/>           
           </Routes>
       </Router>   

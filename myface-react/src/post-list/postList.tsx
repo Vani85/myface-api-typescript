@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import './postList.scss';
 
 type PostUserModel = {
     id: number;
@@ -44,18 +45,17 @@ export function PostList ()  {
     },[page , pageSize]);
 
     return (
-    <div id="postsListContainer">
+    <div>
          <h1> Posts </h1>
-            <ul>
+            <ul id="postsListContainer">
                 {postData?.results.map((post) => (
-                    <li key={post.id}>  
-                        <img  src={post.imageUrl} />
-                        <p> Post ID: {post.id} </p> 
+                    <li className = "posts" key={post.id}>  
+                        <img className="post_image"  src={post.imageUrl} />
                         <p> Message: {post.message} </p> 
                         <p> Date posted: {post.createdAt.toString()} </p>   
                         <p> Posted by: {post.postedBy.name} </p> 
-                        <p> Liked by: {post.likedBy.map((user) => (user.name) + " . ")} </p>  
-                        <p> Disliked by: {post.dislikedBy.map((user) => (user.name) + " . ")} </p>  
+                        {/* <p> Liked by: {post.likedBy.map((user) => (user.name) + " . ")} </p>  
+                        <p> Disliked by: {post.dislikedBy.map((user) => (user.name) + " . ")} </p>   */}
                     </li>
                 ))}
             </ul>
