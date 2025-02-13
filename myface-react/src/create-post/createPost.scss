@@ -1,0 +1,40 @@
+.form-container {
+    padding-left: 500px;
+    margin-top: 0;
+}
+.form-items-ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    height: auto;
+
+}
+
+.form-items-li {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+}
+
+.button-submit {  
+    width: 115px;
+    height: auto;
+    background: #0f2027;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    line-height: 25px;
+}

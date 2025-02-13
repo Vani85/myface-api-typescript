@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import './usersList.scss';
 
 type UserPostModel = {
     id: number;
@@ -41,13 +43,13 @@ export function UserLists ()  {
     },[]);
 
     return (
-    <div id="UsersContainer">
+    <div >
          <h1> Users List </h1>           
-            <ul>
+            <ul id="UsersContainer">
                 {users?.results.map((user) => (
-                    <li key={user.id}>  
-                        <img  src={user.profileImageUrl} /> 
-                        <a href = {`/users/${user.id}`} > {user.name} </a> 
+                    <li id="eachuser" key={user.id}>  
+                        <img className="user-image" src={user.profileImageUrl} /> <br/>
+                        <Link to = {`/users/${user.id}`} > {user.name} </Link> 
                     </li>
                 ))}
             </ul>            
