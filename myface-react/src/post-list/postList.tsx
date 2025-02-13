@@ -46,17 +46,19 @@ export function PostList ()  {
     return (
     <div id="postsListContainer">
          <h1> Posts </h1>
-            {postData?.results.map((post) => (
-                  <li key={post.id}>  
-                  <img  src={post.imageUrl} />
-                  <p> Post ID: {post.id} </p> 
-                  <p> Message: {post.message} </p> 
-                  <p> Date posted: {post.createdAt.toString()} </p>   
-                  <p> Posted by: {post.postedBy.name} </p> 
-                  <p> Liked by: {post.likedBy.map((user) => (user.name))} </p>  
-                  <p> Disliked by: {post.dislikedBy.map((user) => (user.name))} </p>  
-                  </li>
-            ))}
+            <ul>
+                {postData?.results.map((post) => (
+                    <li key={post.id}>  
+                        <img  src={post.imageUrl} />
+                        <p> Post ID: {post.id} </p> 
+                        <p> Message: {post.message} </p> 
+                        <p> Date posted: {post.createdAt.toString()} </p>   
+                        <p> Posted by: {post.postedBy.name} </p> 
+                        <p> Liked by: {post.likedBy.map((user) => (user.name) + " . ")} </p>  
+                        <p> Disliked by: {post.dislikedBy.map((user) => (user.name) + " . ")} </p>  
+                    </li>
+                ))}
+            </ul>
 
 
     </div>

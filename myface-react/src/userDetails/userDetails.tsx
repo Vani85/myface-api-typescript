@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router';
 
 type UserPostModel = {
     id: number;
@@ -21,8 +22,8 @@ type UserModel = {
 export function UserDetails ()  {
 
     const [userData, setUserData] = useState<UserModel>();
-    const [userId, setUserId] = useState(1);
-  
+    const { userId } = useParams();
+
     useEffect(() => {
         const fetchUserData = async () => {       
             let response;
@@ -47,34 +48,40 @@ export function UserDetails ()  {
             <p> {userData?.username} </p>
             <p> {userData?.email} </p>
 
-            {userData?.posts.map((post) => (
-                  <li key={post.id}>  
-                    <img  src={post.imageUrl} /> 
-                    <p> Post ID: {post.id} </p> 
-                    <p> Message: {post.message} </p> 
-                    <p> Date posted: {post.createdAt.toString()} </p>   
-                  </li>
-            ))}
-
-            <h3> Liked Posts </h3>
-            {userData?.likes.map((post) => (
+            <ul>
+                {userData?.posts.map((post) => (
                     <li key={post.id}>  
                         <img  src={post.imageUrl} /> 
                         <p> Post ID: {post.id} </p> 
                         <p> Message: {post.message} </p> 
                         <p> Date posted: {post.createdAt.toString()} </p>   
                     </li>
-            ))}
+                ))}
+            </ul>
+            <h3> Liked Posts </h3>
+
+            <ul>
+                {userData?.likes.map((post) => (
+                        <li key={post.id}>  
+                            <img  src={post.imageUrl} /> 
+                            <p> Post ID: {post.id} </p> 
+                            <p> Message: {post.message} </p> 
+                            <p> Date posted: {post.createdAt.toString()} </p>   
+                        </li>
+                ))}
+            </ul>
 
             <h3> Disliked Posts </h3>
-            {userData?.dislikes.map((post) => (
-                    <li key={post.id}>  
-                        <img  src={post.imageUrl} /> 
-                        <p> Post ID: {post.id} </p> 
-                        <p> Message: {post.message} </p> 
-                        <p> Date posted: {post.createdAt.toString()} </p>   
-                    </li>
-            ))}
+            <ul>
+                {userData?.dislikes.map((post) => (
+                        <li key={post.id}>  
+                            <img  src={post.imageUrl} /> 
+                            <p> Post ID: {post.id} </p> 
+                            <p> Message: {post.message} </p> 
+                            <p> Date posted: {post.createdAt.toString()} </p>   
+                        </li>
+                ))}
+            </ul>
     </div>
   );
 };
