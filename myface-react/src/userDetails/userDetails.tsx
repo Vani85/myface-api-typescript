@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from 'react-router';
+import './userDetails.scss';
 
 type UserPostModel = {
     id: number;
@@ -42,46 +43,45 @@ export function UserDetails ()  {
 
     return (
     <div id="UserDetailsContainer">
-         <h1> {userData?.name} </h1>
-            <img src={userData?.profileImageUrl} />
-            <img src={userData?.coverImageUrl} />
-            <p> {userData?.username} </p>
-            <p> {userData?.email} </p>
+        <h1> {userData?.name} </h1> 
+       
+        <div className="user-image">  
+            <img className="under" src={userData?.coverImageUrl} />
+            <img className="over" src={userData?.profileImageUrl} />
+        </div>
 
-            <ul>
-                {userData?.posts.map((post) => (
-                    <li key={post.id}>  
-                        <img  src={post.imageUrl} /> 
-                        <p> Post ID: {post.id} </p> 
-                        <p> Message: {post.message} </p> 
-                        <p> Date posted: {post.createdAt.toString()} </p>   
+        <h1> My Posts </h1>
+        <ul className="users-posts-container">
+            {userData?.posts.map((post) => (
+                <li className="posts" key={post.id}>  
+                    <img className="post-image" src={post.imageUrl} /> 
+                    {post.message} <br/>
+                    <i> {post.createdAt.toString().slice(0,10)}  </i>
+                </li>
+            ))}
+        </ul>
+        <h1> Liked Posts </h1>
+
+        <ul className="users-posts-container">
+            {userData?.likes.map((post) => (
+                    <li className="posts" key={post.id}>  
+                        <img className="post-image" src={post.imageUrl} /> 
+                        {post.message} <br/>
+                        <i> {post.createdAt.toString().slice(0,10)}  </i>  
                     </li>
-                ))}
-            </ul>
-            <h3> Liked Posts </h3>
+            ))}
+        </ul>
 
-            <ul>
-                {userData?.likes.map((post) => (
-                        <li key={post.id}>  
-                            <img  src={post.imageUrl} /> 
-                            <p> Post ID: {post.id} </p> 
-                            <p> Message: {post.message} </p> 
-                            <p> Date posted: {post.createdAt.toString()} </p>   
-                        </li>
-                ))}
-            </ul>
-
-            <h3> Disliked Posts </h3>
-            <ul>
-                {userData?.dislikes.map((post) => (
-                        <li key={post.id}>  
-                            <img  src={post.imageUrl} /> 
-                            <p> Post ID: {post.id} </p> 
-                            <p> Message: {post.message} </p> 
-                            <p> Date posted: {post.createdAt.toString()} </p>   
-                        </li>
-                ))}
-            </ul>
+        <h1> Disliked Posts </h1>
+        <ul className="users-posts-container">
+            {userData?.dislikes.map((post) => (
+                    <li className="posts" key={post.id}>  
+                        <img className="post-image" src={post.imageUrl} /> 
+                        {post.message} <br/>
+                        <i> {post.createdAt.toString().slice(0,10)}  </i>  
+                    </li>
+            ))}
+        </ul>
     </div>
   );
 };

@@ -1,0 +1,33 @@
+body {
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+
+    color-scheme: light dark;
+    background: linear-gradient(
+    to top,
+    #2c5364,
+    #203a43,
+    #0f2027
+  );
+    color: rgba(255, 255, 255, 0.87);
+  }
+
+  nav {
+    background-color: #000000;
+    position: fixed;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #dcdcdc;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+  }
+
+  nav a {
+    color: #dcdcdc;
+    font-size: large;
+  }
